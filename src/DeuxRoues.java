@@ -1,18 +1,15 @@
-import java.util.*;
-/**
- * Module 633.1-Programmation - TP P04 - Parking
- *
- * Application parking silo
- *
- * Modélisation du concept "deux roues", c'est pourquoi cette classe est abstraite.
- *
- * VOUS NE DEVEZ PAS MODIFIER LE CODE DE CETTE CLASSE
-*/																												
-public abstract class DeuxRoues extends Vehicule {
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
 
-	public DeuxRoues (String immatriculation, String nom, String prenom, int type) {
-		super (immatriculation, nom, prenom, type);
+
+abstract class DeuxRoues extends Vehicule {
+	public DeuxRoues(String var1, String var2, String var3, int var4) {
+		super(var1, var2, var3, var4);
 	}
-		
-	public String toString () {return super.toString() + " deux roues";}
+
+	public String toString() {
+		return "(Deux roues) " + super.toString();
+	}
 }

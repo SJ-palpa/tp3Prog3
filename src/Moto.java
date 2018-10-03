@@ -1,25 +1,15 @@
-import java.util.*;
-/**
- * Module 633.1-Programmation - TP P04 - Parking
- *
- * Application parking silo
- *
- * Modélisation du véhicule deux roues "Moto".
- * La mémorisation est (héritée de Vehicule) : 
- *			- immatriculation (id);
- *			- nom et prénom du conducteur;
- *			- type de véhicule.
- *
- * VOUS POUVEZ MODIFIER LE CODE DE CETTE CLASSE SI VOUS LE SOUHAITEZ
- *
- * @author VOTRE NOM
-*/
-public class Moto extends DeuxRoues {
-		
-	public Moto (String immatriculation, String nom, String prenom) {
-		super (immatriculation, nom, prenom, Vehicule.TYPE_MOTO);
-	}
-		
-	public String toString () {return super.toString() + " conduit une moto ";}
-}
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
 
+
+class Moto extends DeuxRoues {
+	public Moto(String var1, String var2, String var3) {
+		super(var1, var2, var3, 1);
+	}
+
+	public String toString() {
+		return "Moto " + super.toString();
+	}
+}

@@ -14,11 +14,12 @@ import java.util.*;
  *
  * @author VOTRE NOM
 */
-public class Velo extends DeuxRoues {
-		
-	public Velo (String immatriculation, String nom, String prenom) {
-		super (immatriculation, nom, prenom, Vehicule.TYPE_VELO);
+class Velo extends DeuxRoues {
+	public Velo(String var1, String var2, String var3) {
+		super(var1, var2, var3, 0);
 	}
-		
-	public String toString () {return super.toString () + " conduit un vélo ";}
+
+	public String toString() {
+		return "VÃ©lo " + super.toString();
+	}
 }

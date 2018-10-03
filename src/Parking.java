@@ -46,16 +46,67 @@ public class Parking {
 	 
 	/* Retourne le montant (sommes des montants de tous les types de véhicules de l'étage) */ 
 	public double getMontant () {
-		/***** À COMPLÉTER *****/
-		return -0.0;
+		double cpt = 0.0;
+		for(int i = 0; etages.size()>i; i++)
+		{
+			cpt += ((Etage)etages.get(i)).getMontant();
+		}
+		return cpt;
 	}
-		 
+
+	public double getPrixType(int type)
+	{
+		double cpt = 0.0;
+		for(int i = 0; etages.size()> i ; i++)
+		{
+			cpt += ((Etage)etages.get(i)).compteQuartHeureType(type);
+		}
+		if(type == 0)
+		{
+			cpt = cpt *PRIX_VELO;
+		}
+		else if(type == 1)
+		{
+			cpt = cpt *PRIX_MOTO;
+		}
+		else if(type == 2)
+		{
+			cpt = cpt *PRIX_VOITURE;
+		}
+		return cpt;
+	}
+
+	public int getCompteType(int type)
+	{
+		int cpt = 0;
+		for(int i = 0; etages.size()> i ; i++)
+		{
+			cpt += ((Etage)etages.get(i)).compteType(type);
+		}
+		return cpt;
+	}
+
 	/* Supprime le box contenant la voiture désignée par son IdVehicule
 		* Tester tous les étages jusqu'à trouver le box contenant le véhicule
 		* Retourne vrai si l'opération s'est bien déroulée, faux sinon
-	*/	
+	*/
+
+
+	// La meilleur solution ??
 	public boolean removeVehicule (String idVehicule) {
-		/***** À COMPLÉTER *****/
+		boolean etat = false;
+
+		for(int i = 0; etages.size()> i ; i++)
+		{
+			if(!etat)
+			{
+				etat=((Etage) etages.get(i)).removeVehicule(idVehicule);
+			}
+			else
+			{
+				return etat;
+			}
+		}
 		return false;
 	}
 	 

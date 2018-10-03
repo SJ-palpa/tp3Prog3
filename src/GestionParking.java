@@ -18,6 +18,10 @@ public class GestionParking {
 	private static final String DEL_ETAGE = "\r\n";
 	private static final String DEL_CHAMP = ";";
 	private static final String DEL_NO_BOX = "-";
+
+	private static final int TYPE_VELO = 0;
+	private static final int TYPE_MOTO = 1;
+	private static final int TYPE_VOITURE = 2;
 		
 	/* Le parking */
 	private static Parking parking; 
@@ -55,7 +59,7 @@ public class GestionParking {
 				Box bx = et.getBox(nbBox);
 				if(bx == null)
 				{
-					bx = new Box(nbBox,creerVehicule(typeVehicule,nom,prenom,numImmatriculation));
+					bx = new Box(nbBox,creerVehiculeBox(typeVehicule,nom,prenom,numImmatriculation));
 					et.add(bx);
 				}
 				bx.setNbQuartHeures(tempsQuart);
@@ -63,22 +67,25 @@ public class GestionParking {
 		}
 	}
 
-	private static Vehicule creerVehicule(int typeVehi, String nom, String prenom, String numImmatri)
+	private static Vehicule creerVehiculeBox(int typeVehi, String nom, String prenom, String numImmatri)
 	{
 		Vehicule vc;
-		if(typeVehi == 0)
+		if(typeVehi == Vehicule.TYPE_VELO)
 		{
 			vc = new Velo(numImmatri,prenom,nom);
 		}
-		else if( typeVehi == 1)
+		else if( typeVehi == Vehicule.TYPE_MOTO)
 		{
 			vc = new Moto(numImmatri,prenom,nom);
 		}
-		else
+		else if(typeVehi == Vehicule.TYPE_VOITURE)
 		{
 			vc = new Voiture(numImmatri,prenom,nom);
 		}
-
+		else
+		{
+			vc = null;
+		}
 		return vc;
 	}
 
@@ -86,9 +93,10 @@ public class GestionParking {
 	/* Prépare et affiche le rapport */
 	private static void afficheRapport () {
 		System.out.println("Rapport parking");
-		
-		/***** À COMPLÉTER *****/
-		
+		System.out.println("Il y a : " +parking.getNbVehicules() +" véhicule(s) parqués");
+		System.out.println("VELO "+ parking.getCompteType(TYPE_VELO) +" pour un montant actuel : " +parking.getPrixType(TYPE_VELO) +" CHF");
+		System.out.println("MOTO "+ parking.getCompteType(TYPE_MOTO) +" pour un montant actuel : " +parking.getPrixType(TYPE_MOTO) +" CHF");
+		System.out.println("VOITURE "+ parking.getCompteType(TYPE_VOITURE) +" pour un montant actuel : " +parking.getPrixType(TYPE_VOITURE) +" CHF");
 	}
 	
 	/* VOUS NE DEVEZ PAS MODIFIER LE CODE DE CETTE METHODE */
@@ -114,7 +122,7 @@ public class GestionParking {
 			System.out.println("Mémorisation du parking (fichier :");
 			//System.out.println("Mémorisation du parking (fichier : \"" + args[0] + "\")");				/// A MODIFIFFIIFIEIIRIERIR
 			System.out.println("----------------------------------------------------------");
-			memoriseParking(FileToStr.read("donnees_parking.txt")); 									/// A MODIFIFFIIFIEIIRIERIR
+			memoriseParking(FileToStr.read("parking.txt")); 											/// A MODIFIFFIIFIEIIRIERIR
 
 			afficheRapport();
 			recuperationVehicules();
