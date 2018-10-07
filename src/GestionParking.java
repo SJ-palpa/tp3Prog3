@@ -67,15 +67,15 @@ public class GestionParking {
         VehiculePrix vh = null;
         if(type == Vehicule.TYPE_VELO)
         {
-            vh = new VeloPrix(nom,prenom,immatriculation);
+            vh = new VeloPrix(immatriculation,nom,prenom);
         }
         else if(type == Vehicule.TYPE_MOTO)
         {
-            vh = new MotoPrix(nom,prenom,immatriculation);
+            vh = new MotoPrix(immatriculation,nom,prenom);
         }
         else if (type == Vehicule.TYPE_VOITURE)
         {
-            vh = new VoiturePrix(nom,prenom,immatriculation);
+            vh = new VoiturePrix(immatriculation,nom,prenom);
         }
         return  vh;
     }

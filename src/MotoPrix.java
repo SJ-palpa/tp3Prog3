@@ -6,6 +6,10 @@ public class MotoPrix extends VehiculePrix implements InterfaceVehicule{
         super(var1, var2, var3,Vehicule.TYPE_MOTO);
     }
 
+    public MotoPrix(String var1) {
+        super(var1, "", "", -1);
+    }
+
     @Override
     public double getPrix() {
         return MOTO_PRIX;

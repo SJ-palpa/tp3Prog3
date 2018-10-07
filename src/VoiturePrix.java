@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class VoiturePrix extends VehiculePrix implements InterfaceVehicule {
 
     private static final double VOITURE_PRIX = 3;
@@ -9,7 +11,6 @@ public class VoiturePrix extends VehiculePrix implements InterfaceVehicule {
     public VoiturePrix(String var1) {
         super(var1, "", "", -1);
     }
-
 
     @Override
     public double getPrix() {

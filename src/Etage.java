@@ -81,8 +81,7 @@ public class Etage {
 
         for(int i = 0 ; boxes.size()> i ; i++)
         {
-            System.out.println(idVehicule);
-            if(((Box)boxes.get(i)).equals(new Box(boxe,idVehicule))
+            if(((Box)boxes.get(i)).memeIdVehicule(idVehicule))
             {
                 ((Box) boxes.get(i)).removeVehicule();
                 ((Box) boxes.get(i)).setNbQuartHeures(0);

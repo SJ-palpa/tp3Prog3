@@ -13,10 +13,6 @@ public class Box {
     private int nbQuartHeures;
     private VehiculePrix vehicule;
 
-    public int getNo() {
-        return no;
-    }
-
     public Box(int no, VehiculePrix vehicule) {
         this.no = no;
         this.vehicule = vehicule;
@@ -42,7 +38,6 @@ public class Box {
         return true;	// Pour être certain que le vehicule est supprimé
     }
 
-
     public Box(int no) {this(no, null);} /* Pour la recherche */
 
     public double getPrix()
@@ -53,7 +48,7 @@ public class Box {
     public int getNbQuartHeures() {return nbQuartHeures;}
     public void setNbQuartHeures(int nbQuartHeures) {this.nbQuartHeures = nbQuartHeures;}
     
-    public boolean memeIdVehicule(String id) {return vehicule.equalsId(id);}
+    public boolean memeIdVehicule(String id) {return vehicule.equals(new VoiturePrix(id));}
     public boolean memeTypeVehicule(int type) {return vehicule.equalsType(type);}
 
     /* Deux Box sont égaux si leurs numéros sont identiques */
